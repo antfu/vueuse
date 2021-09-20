@@ -85,13 +85,10 @@
       "addon": true,
       "submodules": true,
       "external": [
-        "firebase",
-        "firebase/app"
+        "firebase/auth",
+        "firebase/database",
+        "firebase/firestore"
       ],
-      "globals": {
-        "firebase": "firebase",
-        "firebase/app": "firebase"
-      },
       "dir": "packages/firebase",
       "docs": "https://vueuse.org/firebase/README.html"
     },
