@@ -46,6 +46,7 @@ onClickOutside(
       <p class="heading">
         Demo Modal
       </p>
+      <input type="text" class="!min-w-0 w-full" value="Selection won't close modal!" />
       <p>Click outside of the modal to close it.</p>
     </div>
   </div>
