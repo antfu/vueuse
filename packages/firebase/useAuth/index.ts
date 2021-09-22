@@ -1,23 +1,23 @@
 import { computed, ComputedRef, ref, Ref } from 'vue-demi'
-import type firebase from 'firebase/app'
+import { Auth, onIdTokenChanged, User } from 'firebase/auth'
 
 export interface FirebaseAuthOptions {
   isAuthenticated: ComputedRef<boolean>
-  user: Ref<firebase.User | null>
+  user: Ref<User | null>
 }
 
-export function useAuth(authInstance: typeof firebase.auth | firebase.auth.Auth) {
-  let auth: firebase.auth.Auth
+export function useAuth(authInstance: Auth) {
+  let auth: Auth
 
   if (authInstance instanceof Function)
     auth = authInstance()
   else
     auth = authInstance
 
-  const user = ref<firebase.User | null>(auth.currentUser)
+  const user = ref<User | null>(auth.currentUser)
   const isAuthenticated = computed(() => !!user.value)
 
-  auth.onIdTokenChanged(authUser => user.value = authUser)
+  onIdTokenChanged(auth, authUser => user.value = authUser)
 
   return {
     isAuthenticated,

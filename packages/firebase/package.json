@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/vueuse/vueuse/tree/main/packages/firebase#readme",
   "peerDependencies": {
-    "firebase": ">=4.0.0"
+    "firebase": ">=9.0.2"
   },
   "dependencies": {
     "@vueuse/shared": "6.4.1",
